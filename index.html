@@ -3,40 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
+  <title>Home Page</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
-        <a class="navbar-brand" href="../index.html">Best Buy</a>
+        <a class="navbar-brand" href="#">Best Buy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="../index.html">Home</a>
+              <a class="nav-link" href="./index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./product.html">Mobile Listing</a>
+              <a class="nav-link" href="./pages/product.html">Mobile Listing</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./watch.html">Watch Listing</a>
+              <a class="nav-link" href="./pages/watch.html">Watch Listing</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./Login.html">Login</a>
+              <a class="nav-link" href="./pages/Login.html">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./Signup.html">Sign Up</a>
+              <a class="nav-link" href="./pages/Signup.html">Sign Up</a>
             </li>
           </ul>
         </div>
       </nav>
-
-      <div class="container mt-4">
+    <div class="container mt-4">
         <div class="row">
             <div class="col-md-6 mb-4">
             <img src="./images/image1.png" class="img-fluid" alt="Big Image">
@@ -55,6 +54,7 @@
             </div>
             </div>
         </div>
+
         <div class="row mt-4">
             <div class="col-md-12">
             <img src="./images/image5.png" class="img-fluid" alt="Image 5">
@@ -65,36 +65,60 @@
             <h1>Shop by Category</h1>
             </div>
         </div>
-        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+            <div class="card">
+                <img src="./images/mobile.png" class="card-img-top" alt="Mobiles">
+                <div class="card-body">
+                <h5 class="card-title">Mobiles</h5>
+                <a href="./pages/product.html" class="btn btn-primary">Shop Now</a>
+                </div>
+            </div>
+            </div>
 
-      <footer class="bg-footer text-dark text-center py-3">
+            <div class="col-md-6">
+            <div class="card">
+                <img src="./images/watch.jpeg" class="card-img-top" alt="Watches">
+                <div class="card-body">
+                <h5 class="card-title">Watches</h5>
+                <a href="./pages/watch.html" class="btn btn-primary">Shop Now</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+            <img src="./images/image6.png" class="img-fluid" alt="Image 5">
+            </div>
+        </div>
+    </div>
+    <footer class="bg-footer text-dark text-center py-3">
         <div class="container">
-          <div class="row">
+        <div class="row">
             <div class="col-md-4">
-              <h5>Quick Links</h5>
-              <ul class="list-unstyled">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Privacy Policy</a></li>
                 <li><a href="#">Terms and Conditions</a></li>
-              </ul>
+            </ul>
             </div>
             <div class="col-md-4">
-              <h5>Contact Us</h5>
-              <p>Email: info@bestbuy.com</p>
-              <p>Phone: 123-456-7890</p>
+            <h5>Contact Us</h5>
+            <p>Email: info@bestbuy.com</p>
+            <p>Phone: 123-456-7890</p>
             </div>
             <div class="col-md-4">
-              <h5>Connect with Us</h5>
-              <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-              <img src="path/to/your/logo.png" alt="Best Buy Logo" class="img-fluid"/>
+            <h5>Connect with Us</h5>
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <img src="path/to/your/logo.png" alt="Best Buy Logo" class="img-fluid"/>
             </div>
-          </div>
+        </div>
         </div>
         <p>&copy; 2024 Best Buy. All rights reserved.</p>
-      </footer>
-
+    </footer>
 
 </body>
 </html>
