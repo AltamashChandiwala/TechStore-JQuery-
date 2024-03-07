@@ -1,3 +1,5 @@
+<!-- product_detail.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Detail Page</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -41,9 +45,7 @@
     <div class="col-md-6">
       <div id="imageCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="path/to/product/image.jpg" class="d-block w-100" alt="Slide 1" />
-          </div>
+          <!-- Carousel items will be dynamically added here using jQuery -->
         </div>
         <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -58,19 +60,7 @@
 
     <!-- Product details on the right -->
     <div id="productDetail" class="col-md-6">
-      <h2>Product Name</h2>
-      <p>Stars: 4.5</p>
-      <p>New Price: $99.99</p>
-      <p>Old Price: $129.99</p>
-      <p>Discount: 20%</p>
-      <p>Special Offer: Free Shipping</p>
-      <p>Delivery Type: Express</p>
-      <h3>Description:</h3>
-      <p>Description 1</p>
-      <p>Description 2</p>
-      <p>Description 3</p>
-      <p>Description 4</p>
-      <a href="../pages/orderSuccess.html" class="btn btn-primary" id="buyNowBtn">Buy Now</a>
+      <!-- Product details will be dynamically added here using jQuery -->
     </div>
     <div class="mt-4">
         
@@ -80,7 +70,7 @@
 
   <!-- Additional Image Slider -->
   <div id="imageSlider" class="mt-4">
-    <img src="path/to/additional/image.jpg" class="img-fluid" alt="Image 1" />
+    <!-- Image gallery will be dynamically added here using jQuery -->
   </div>
 
 </div>
@@ -112,6 +102,60 @@
   </div>
   <p>&copy; 2024 Best Buy. All rights reserved.</p>
 </footer>
+
+<script>
+  $(document).ready(function() {
+    // Extract product ID from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    // Fetch data and dynamically create product details using jQuery
+    $.getJSON('https://raw.githubusercontent.com/AltamashChandiwala/Mobile_data/main/mobile.json', function(data) {
+      const product = data.find(p => p.product_id === parseInt(productId));
+
+      if (product) {
+        // Populate image gallery on the left
+        $.each(product.desc_img, function(index, image) {
+          const activeClass = index === 0 ? 'active' : '';
+          $('#imageCarousel .carousel-inner').append(`
+            <div class="carousel-item ${activeClass}">
+              <img src="${image}" class="d-block w-100" alt="Slide ${index + 1}" />
+            </div>
+          `);
+        });
+
+        // Populate product details on the right
+        $('#productDetail').html(`
+          <h2>${product.product_name}</h2>
+          <p>Stars: ${product.stars}</p>
+          <p>New Price: $${product.new_price}</p>
+          <p>Old Price: $${product.old_price}</p>
+          <p>Discount: ${product.discount}%</p>
+          <p>Special Offer: ${product.special_offer}</p>
+          <p>Delivery Type: ${product.delivery_type}</p>
+          <h3>Description:</h3>
+          <p>${product.desc_1}</p>
+          <p>${product.desc_2}</p>
+          <p>${product.desc_3}</p>
+          <p>${product.desc_4}</p>
+          <a href="../pages/orderSuccess.html" class="btn btn-primary" id="buyNowBtn">Buy Now</a>
+        `);
+
+        // Populate additional Image Slider
+        $.each(product.image_gallery, function(index, image) {
+          $('#imageSlider').append(`
+            <img src="${image}" class="img-fluid" alt="Image ${index + 1}" />
+          `);
+        });
+
+        // Set Buy Now button link
+        $('#buyNowBtn').attr('href', '../pages/ordersuccess.html?id=' + productId);
+      } else {
+        $('#productDetail').html('<p>Product not found</p>');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
