@@ -1,3 +1,5 @@
+<!-- watch.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Watch Page</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -36,21 +40,7 @@
 <div class="container mt-5">
   <h2 class="text-center mb-4">Watch Products</h2>
   <div class="row" id="productContainer">
-    <div class="col-md-4 mb-4">
-      <div class="card h-100">
-        <img src="path/to/watch/image.jpg" class="card-img-top" alt="Watch Name" />
-        <div class="card-body">
-          <h5 class="card-title">Watch Name</h5>
-          <p class="card-text"><strong>New Price:</strong> $199.99</p>
-          <p class="card-text"><strong>Old Price:</strong> $249.99</p>
-          <p class="card-text"><strong>Discount:</strong> 20%</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <p class="card-text mb-0"><strong>Stars:</strong> 4.2</p>
-            <a href="../pages/watch_detail.html?id=456" class="btn btn-primary">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Watch cards will be dynamically added here using jQuery -->
   </div>
 </div>
 
@@ -81,6 +71,34 @@
   </div>
   <p>&copy; 2024 Best Buy. All rights reserved.</p>
 </footer>
+
+<script>
+  $(document).ready(function() {
+    // Fetch data and dynamically create watch cards using jQuery
+    $.getJSON('https://raw.githubusercontent.com/AltamashChandiwala/Mobile_data/main/electronic.json', function(data) {
+      $.each(data, function(index, watch) {
+        $('#productContainer').append(`
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="${watch.image}" class="card-img-top" alt="${watch.product_name}" />
+              <div class="card-body">
+                <h5 class="card-title">${watch.product_name}</h5>
+                <p class="card-text"><strong>New Price:</strong> $${watch.new_price}</p>
+                <p class="card-text"><strong>Old Price:</strong> $${watch.old_price}</p>
+                <p class="card-text"><strong>Discount:</strong> ${watch.discount}%</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="card-text mb-0"><strong>Stars:</strong> ${watch.stars}</p>
+                  <!-- Use product ID in the URL for the product detail page -->
+                  <a href="../pages/watch_detail.html?id=${watch.product_id}" class="btn btn-primary">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `);
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
