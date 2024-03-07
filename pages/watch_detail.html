@@ -1,3 +1,5 @@
+<!-- watch_detail.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,83 +38,122 @@
         </div>
       </nav>
 
-      <div class="container mt-4">
-        <div class="row">
-          <!-- Image gallery on the left -->
-          <div class="col-md-6">
-            <div id="imageCarousel" class="carousel slide" data-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="path/to/product/image.jpg" class="d-block w-100" alt="Slide 1" />
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-          </div>
-      
-          <!-- Product details on the right -->
-          <div id="productDetail" class="col-md-6">
-            <h2>Product Name</h2>
-            <p>Stars: 4.5</p>
-            <p>New Price: $99.99</p>
-            <p>Old Price: $129.99</p>
-            <p>Discount: 20%</p>
-            <p>Special Offer: Free Shipping</p>
-            <p>Delivery Type: Express</p>
-            <h3>Description:</h3>
-            <p>Description 1</p>
-            <p>Description 2</p>
-            <p>Description 3</p>
-            <p>Description 4</p>
-            <a href="../pages/orderSuccess.html" class="btn btn-primary" id="buyNowBtn">Buy Now</a>
-          </div>
-          <div class="mt-4">
-              
-          </div>
-          
+<div class="container mt-4">
+  <div class="row">
+    <!-- Image gallery on the left -->
+    <div class="col-md-6">
+      <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" id="watchImageCarousel">
+          <!-- Carousel items will be dynamically added here using jQuery -->
         </div>
-      
-        <!-- Additional Image Slider -->
-        <div id="imageSlider" class="mt-4">
-          <img src="path/to/additional/image.jpg" class="img-fluid" alt="Image 1" />
-        </div>
-      
+        <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
+    </div>
 
-      <footer class="bg-footer text-dark text-center py-3">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <h5>Quick Links</h5>
-              <ul class="list-unstyled">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms and Conditions</a></li>
-              </ul>
+    <!-- Watch details on the right -->
+    <div id="watchDetail" class="col-md-6">
+      <!-- Watch details will be dynamically added here using jQuery -->
+    </div>
+    <div class="mt-4">
+        
+    </div>
+  </div>
+
+  <!-- Additional Image Slider -->
+  <div id="imageSlider" class="mt-4">
+    <!-- Image gallery will be dynamically added here using jQuery -->
+  </div>
+
+</div>
+
+<footer class="bg-footer text-dark text-center py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms and Conditions</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <p>Email: info@bestbuy.com</p>
+        <p>Phone: 123-456-7890</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Connect with Us</h5>
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <img src="path/to/your/logo.png" alt="Best Buy Logo" class="img-fluid"/>
+      </div>
+    </div>
+  </div>
+  <p>&copy; 2024 Best Buy. All rights reserved.</p>
+</footer>
+
+<script>
+  $(document).ready(function() {
+    // Extract watch ID from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const watchId = urlParams.get('id');
+
+    // Fetch data and dynamically create watch details and images using jQuery
+    $.getJSON('https://raw.githubusercontent.com/AltamashChandiwala/Mobile_data/main/electronic.json', function(data) {
+      const watch = data.find(w => w.product_id === parseInt(watchId));
+
+      if (watch) {
+        // Populate image gallery on the left
+        $.each(watch.desc_img, function(index, image) {
+          const activeClass = index === 0 ? 'active' : '';
+          $('#watchImageCarousel').append(`
+            <div class="carousel-item ${activeClass}">
+              <img src="${image}" class="d-block w-100" alt="Slide ${index + 1}" />
             </div>
-            <div class="col-md-4">
-              <h5>Contact Us</h5>
-              <p>Email: info@bestbuy.com</p>
-              <p>Phone: 123-456-7890</p>
-            </div>
-            <div class="col-md-4">
-              <h5>Connect with Us</h5>
-              <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-              <img src="path/to/your/logo.png" alt="Best Buy Logo" class="img-fluid"/>
-            </div>
-          </div>
-        </div>
-        <p>&copy; 2024 Best Buy. All rights reserved.</p>
-      </footer>
-    
+          `);
+        });
+
+        // Populate watch details on the right
+        $('#watchDetail').html(`
+          <h2>${watch.product_name}</h2>
+          <p>Stars: ${watch.stars}</p>
+          <p>New Price: $${watch.new_price}</p>
+          <p>Old Price: $${watch.old_price}</p>
+          <p>Discount: ${watch.discount}%</p>
+          <p>Special Offer: ${watch.special_offer}</p>
+          <p>Delivery Type: ${watch.delivery_type}</p>
+          <h3>Description:</h3>
+          <p>${watch.desc_1}</p>
+          <p>${watch.desc_2}</p>
+          <p>${watch.desc_3}</p>
+          <p>${watch.desc_4}</p>
+          <a href="../pages/orderSuccess.html" class="btn btn-primary" id="buyNowBtn">Buy Now</a>
+        `);
+
+        // Populate additional Image Slider
+        $.each(watch.image_gallery, function(index, image) {
+          $('#imageSlider').append(`
+            <img src="${image}" class="img-fluid" alt="Image ${index + 1}" />
+          `);
+        });
+
+        // Set Buy Now button link
+        $('#buyNowBtn').attr('href', '../pages/ordersuccess.html?id=' + watchId);
+      } else {
+        $('#watchDetail').html('<p>Watch not found</p>');
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
