@@ -5,64 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Page</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
-        <a class="navbar-brand" href="../index.html">Best Buy</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="../index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./product.html">Mobile Listing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./watch.html">Watch Listing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./Login.html">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./Signup.html">Sign Up</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <footer class="bg-footer text-dark text-center py-3">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <h5>Quick Links</h5>
-              <ul class="list-unstyled">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms and Conditions</a></li>
-              </ul>
-            </div>
-            <div class="col-md-4">
-              <h5>Contact Us</h5>
-              <p>Email: info@bestbuy.com</p>
-              <p>Phone: 123-456-7890</p>
-            </div>
-            <div class="col-md-4">
-              <h5>Connect with Us</h5>
-              <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-              <img src="path/to/your/logo.png" alt="Best Buy Logo" class="img-fluid"/>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+    <a class="navbar-brand" href="../index.html">Best Buy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./product.html">Mobile Listing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./watch.html">Watch Listing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./Login.html">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./Signup.html">Sign Up</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Mobile Products</h2>
+  <div class="row" id="productContainer">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <img src="path/to/product/image.jpg" class="card-img-top" alt="Product Name" />
+        <div class="card-body">
+          <h5 class="card-title">Product Name</h5>
+          <p class="card-text"><strong>New Price:</strong> $99.99</p>
+          <p class="card-text"><strong>Old Price:</strong> $129.99</p>
+          <p class="card-text"><strong>Discount:</strong> 20%</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <p class="card-text mb-0"><strong>Stars:</strong> 4.5</p>
+            <a href="../pages/product_detail.html?id=123" class="btn btn-primary">View Details</a>
           </div>
         </div>
-        <p>&copy; 2024 Best Buy. All rights reserved.</p>
-      </footer>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-footer text-dark text-center py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms and Conditions</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <p>Email: info@bestbuy.com</p>
+        <p>Phone: 123-456-7890</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Connect with Us</h5>
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <img src="path/to/your/logo.png" alt="Best Buy Logo" class="img-fluid"/>
+      </div>
+    </div>
+  </div>
+  <p>&copy; 2024 Best Buy. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
