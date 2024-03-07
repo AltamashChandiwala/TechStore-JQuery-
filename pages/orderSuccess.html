@@ -84,3 +84,15 @@
 </body>
 </html>
 
+<script>
+  // jQuery for navigation
+  $(document).on('click', 'a[href^="/"]', function (event) {
+    event.preventDefault();
+
+    const href = $(this).attr('href');
+    $('html, body').animate({
+      scrollTop: $(href).offset().top
+    }, 800);
+  });
+</script>
+
